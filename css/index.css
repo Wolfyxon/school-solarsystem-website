@@ -1,0 +1,9 @@
+@import url("global.css");
+@import url("topbar.css");
+
+#solarsys-canvas {
+ background-color: black;
+ width: 95%;
+ margin-left: 2.5%;
+ margin-top: 1%;
+}
