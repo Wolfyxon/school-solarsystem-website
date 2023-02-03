@@ -6,6 +6,9 @@
  width: 100%;
 }
 #solarsys-canvas {
+ width: 95%;
+ margin-left: 2.5%;
+ pointer-events: none;
  background-color: black;
  position: absolute;
 }
@@ -22,6 +25,10 @@
  background-color: white;
  width: 50%;
  margin-left: 25%;
+}
+
+#enter-canvas {
+ cursor: pointer;
 }
 
 #enter-canvas h1 {

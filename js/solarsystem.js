@@ -43,11 +43,17 @@ const textures = {
     "neptune":texture("../assets/img/textures/neptune.jpg")
 }
 
+var autoRot = false
+export function setAutoRotate(enabled){
+    autoRot = enabled
+}
+
 window.addEventListener('load', () => {
-    var width = window.innerWidth//*0.95
+    var width = window.innerWidth*0.95
     var height = window.innerHeight
 
     const canvas = document.getElementById("solarsys-canvas")
+    canvas.style.pointerEvents = "none" //js doesn't see the CSS declared pointerEvents
     const scene = new TH.Scene();
     const camera = new TH.PerspectiveCamera(70, (window.innerWidth / window.innerHeight), 0.1, 10000);
     const renderer = new TH.WebGLRenderer({canvas: canvas, antialias: true});
@@ -152,9 +158,11 @@ window.addEventListener('load', () => {
     const neptune = new TH.Mesh(new TH.IcosahedronGeometry(3, 25),new TH.MeshLambertMaterial({ map:textures.neptune }))
     neptune.position.set(900,0,0)
 
+    camera.position.y = 90
     camera.position.z = 200;
     const controls = new TrackballControls(camera,renderer.domElement)
     controls.target.set( 0, 0, 0 )
+    controls.maxDistance = 2000
     scene.add(camera)
 
     const bodies = [sun, mercury,venus,earth]
@@ -214,6 +222,7 @@ window.addEventListener('load', () => {
         renderer.clearDepth();
         camera.layers.set(0);
         renderer.render(scene, camera);
+
       };
       
     animate();
