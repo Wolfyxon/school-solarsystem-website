@@ -3,7 +3,7 @@ import * as TH from '../node_modules/three/build/three.module.js'
 import {UnrealBloomPass} from "../node_modules/three/examples/jsm/postprocessing/UnrealBloomPass.js";
 import {RenderPass} from "../node_modules/three/examples/jsm/postprocessing/RenderPass.js";
 import {EffectComposer} from "../node_modules/three/examples/jsm/postprocessing/EffectComposer.js";
-
+import {TrackballControls} from "../node_modules/three/examples/jsm/controls/TrackballControls.js"
 
 
 function Vector3(x,y,z){
@@ -12,7 +12,15 @@ function Vector3(x,y,z){
 
 const LAYER_MAIN=0, LAYER_GLOW=1
 
-var quality = 50
+function texture(path){
+    return new TH.TextureLoader().load(path)
+}
+
+const textures = {
+    "sun":texture("../assets/img/textures/sun.jpeg"),
+    "mercury":texture("../assets/img/textures/mercury.jpg")
+}
+
 window.addEventListener('load', () => {
     var width = window.innerWidth*0.95
     var height = window.innerHeight
@@ -43,28 +51,32 @@ window.addEventListener('load', () => {
     bloom.radius = 0;
     effects.setSize(width,height)
     effects.renderToScreen = true
-    
     effects.addPass(renderPass)
     effects.addPass(bloom)
 
-
-    const sun = new TH.Mesh(new TH.IcosahedronGeometry(1, 15),new TH.MeshBasicMaterial({ color: "yellow" }));
+    
+    const sun = new TH.Mesh(new TH.IcosahedronGeometry(10, 20),new TH.MeshBasicMaterial({ map: textures.sun }));
     sun.layers.set(LAYER_GLOW)
-    sun.position.set(0, 0, 0);
-    sun.frustumCulled = true
-
     scene.add(sun)
+
+    const mercury = new TH.Mesh(new TH.IcosahedronGeometry(3, 20),new TH.MeshBasicMaterial({ map:textures.mercury }))
+    mercury.position.set(25,0,0)
+    scene.add(mercury)
+
+    camera.position.z = 50;
+    const controls = new TrackballControls(camera,renderer.domElement)
+    controls.target.set( 0, 0, 0 )
     scene.add(camera)
-
-    camera.position.z = 10;
-
-
     const animate = () => {
         requestAnimationFrame(animate);
+        renderer.clear();
+        controls.update();
         camera.layers.set(1);
-        renderer.render(scene,camera)
-        effects.render()
-        //bloom.render(renderer,effects.readBuffer,effects.writeBuffer,1,LAYER_GLOW);
+        effects.render();
+        
+        renderer.clearDepth();
+        camera.layers.set(0);
+        renderer.render(scene, camera);
       };
       
     animate();
