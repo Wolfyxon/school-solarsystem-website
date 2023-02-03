@@ -44,7 +44,7 @@ const textures = {
 }
 
 window.addEventListener('load', () => {
-    var width = window.innerWidth*0.95
+    var width = window.innerWidth//*0.95
     var height = window.innerHeight
 
     const canvas = document.getElementById("solarsys-canvas")
@@ -177,7 +177,7 @@ window.addEventListener('load', () => {
         rotor.rotateY(Math.floor(Math.random() * 360))
 
         const innerRad = body.position.x
-        const ring =  new TH.Mesh(new TH.RingGeometry(innerRad,innerRad+0.1,50),new TH.MeshBasicMaterial({ color:"white",side: TH.DoubleSide,transparent:true }))
+        const ring =  new TH.Mesh(new TH.RingGeometry(innerRad,innerRad+0.15,100),new TH.MeshBasicMaterial({ color:"white",side: TH.DoubleSide,transparent:true }))
         ring.rotateX(deg2rad(90))
         center.add(ring)
 
