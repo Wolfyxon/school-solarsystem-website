@@ -39,9 +39,6 @@ window.addEventListener('load', () => {
 
     const effects = new EffectComposer(renderer)
 
-    const ambientlight = new TH.AmbientLight(0xffffff, 0.1);
-    scene.add(ambientlight);
-
     const bloom = new UnrealBloomPass(
         new TH.Vector2(window.innerWidth, window.innerHeight),
         1.5,
