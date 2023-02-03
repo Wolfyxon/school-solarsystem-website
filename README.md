@@ -2,7 +2,7 @@
 Hi, this is a website I made for a school project. It includes few articles about space and our solar system and also a 3D interactive model of it.
 
 ## NOTE
-This **does not** require Node to work but it needs to be ran on a web server or you might get a CORS error.
+This **does not** require Node to work, even if there's `node_modules`, but it needs to be run on a web server, or you might get a CORS error.
 
 ## Sources
 ### Libraries
