@@ -44,11 +44,12 @@ window.addEventListener('load', () => {
     renderer.setPixelRatio(window.devicePixelRatio ? window.devicePixelRatio : 1);
     renderer.setClearColor(0x000000, 0.0);
     renderer.shadowMap.enabled = true
-    //const ambientLight = new TH.AmbientLight( "white",1 );
-    //scene.add(ambientLight)
+    const ambientLight = new TH.AmbientLight( "white",0.2 );
+    scene.add(ambientLight)
     const cubeTextureLoader = new TH.CubeTextureLoader();
 
     /*
+    //sun disappears when the background is added :<
     const starsTxt = "../assets/img/stars.jpg"
         scene.background = cubeTextureLoader.load([
             starsTxt,
