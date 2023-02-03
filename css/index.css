@@ -2,12 +2,25 @@
 @import url("topbar.css");
 
 
+#didyouknow {
+ text-align: center;
+ background-color: white;
+ color: black;
+ padding: 1%;
+ margin-top: 1%;
+ border-radius: 10px;
+ width: 60%;
+ margin-left: 20%;
+}
+
 #canvas-container {
+ margin-top: 1%;
  width: 100%;
+ width: 95%;
+ overflow: hidden;
+ margin-left: 2.5%;
 }
 #solarsys-canvas {
- width: 95%;
- margin-left: 2.5%;
  pointer-events: none;
  background-color: black;
  position: absolute;
@@ -15,7 +28,7 @@
 .canvas-overlay {
  position: absolute;
  display: block;
- width: 100%;
+ width: 95%;
  height: 100%;
  background-color: rgba(0, 255, 255, 0.06);
  z-index: 2;

@@ -3,3 +3,30 @@
  color: white;
  padding: 1%;
 }
+#topbar img,#title {
+ display: inline-block;
+ vertical-align: top;
+}
+#title {
+ font-size: 170%;
+ padding-top: 5px;
+ width: 70%;
+ display: inline-block;
+}
+#topbar-buttons {
+ text-align: right;
+ margin-top: 5px;
+ vertical-align: top;
+ display: inline-block;
+ width: 27%;
+}
+#topbar-buttons a {
+ padding-left: 10px;
+ text-decoration: none;
+ font-weight: 0;
+ color: white;
+ font-size: 130%;
+}
+#topbar-buttons a:hover {
+ text-decoration: underline;
+}
