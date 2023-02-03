@@ -3,8 +3,7 @@ import * as TH from '../node_modules/three/build/three.module.js'
 import {UnrealBloomPass} from "../node_modules/three/examples/jsm/postprocessing/UnrealBloomPass.js";
 import {RenderPass} from "../node_modules/three/examples/jsm/postprocessing/RenderPass.js";
 import {EffectComposer} from "../node_modules/three/examples/jsm/postprocessing/EffectComposer.js";
-import {TrackballControls} from "../node_modules/three/examples/jsm/controls/TrackballControls.js"
-
+import {OrbitControls} from "../node_modules/three/examples/jsm/controls/OrbitControls.js";
 
 function deg2rad(degrees) {
     return degrees * (Math.PI/180);
@@ -160,7 +159,8 @@ window.addEventListener('load', () => {
 
     camera.position.y = 90
     camera.position.z = 200;
-    const controls = new TrackballControls(camera,renderer.domElement)
+    const controls = new OrbitControls(camera,renderer.domElement)
+    controls.rotateSpeed = 0.5
     controls.target.set( 0, 0, 0 )
     controls.maxDistance = 2000
     scene.add(camera)
@@ -206,7 +206,6 @@ window.addEventListener('load', () => {
     //TODO: fix sun not ocluding planets
     const animate = () => {
         requestAnimationFrame(animate);
-
         sun.rotateY(0.001)
         for(var i=0;i<orbits.length;i++){
             const orbit = orbits[i]
