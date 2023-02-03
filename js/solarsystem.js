@@ -46,7 +46,7 @@ window.addEventListener('load', () => {
         0.85
     );
     bloom.threshold = 0;
-    bloom.strength = 2; //intensity of glow
+    bloom.strength = 2;
     bloom.radius = 0;
     effects.setSize(width,height)
     effects.renderToScreen = true
