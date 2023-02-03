@@ -6,6 +6,10 @@ import {EffectComposer} from "../node_modules/three/examples/jsm/postprocessing/
 import {TrackballControls} from "../node_modules/three/examples/jsm/controls/TrackballControls.js"
 
 
+function deg2rad(degrees) {
+    return degrees * (Math.PI/180);
+}
+
 function Vector3(x,y,z){
     return new TH.Vector3(x,y,z);
 }
@@ -111,7 +115,6 @@ window.addEventListener('load', () => {
     earthMoon.position.set(10,0,0)
     ////////////////////////////
 
-
     function genAsteroidBelt(){
         //TODO: ^
     }
@@ -119,7 +122,6 @@ window.addEventListener('load', () => {
     //TODO: jupiter moons
     const jupiter = new TH.Mesh(new TH.IcosahedronGeometry(20, 25),new TH.MeshLambertMaterial({ map:textures.jupiter }))
     jupiter.position.set(350,0,0)
-
 
     //////SATURN ZONE
     const saturn = new TH.Mesh(new TH.IcosahedronGeometry(20, 25),new TH.MeshLambertMaterial({ map:textures.saturn }))
@@ -150,7 +152,6 @@ window.addEventListener('load', () => {
     const neptune = new TH.Mesh(new TH.IcosahedronGeometry(3, 25),new TH.MeshLambertMaterial({ map:textures.neptune }))
     neptune.position.set(900,0,0)
 
-
     camera.position.z = 200;
     const controls = new TrackballControls(camera,renderer.domElement)
     controls.target.set( 0, 0, 0 )
@@ -168,10 +169,19 @@ window.addEventListener('load', () => {
     var orbits = []
     function addOrbit(body,speed,axisSpeed,center=sun){
         const rotor = new TH.Object3D()
+
         rotor.rotateY(Math.floor(Math.random() * 360))
         const centerPos = center.position
         center.add(rotor)
         rotor.add(body)
+        rotor.rotateY(Math.floor(Math.random() * 360))
+
+        const innerRad = body.position.x
+        const ring =  new TH.Mesh(new TH.RingGeometry(innerRad,innerRad+0.1,50),new TH.MeshBasicMaterial({ color:"white",side: TH.DoubleSide,transparent:true }))
+        ring.rotateX(deg2rad(90))
+        center.add(ring)
+
+
         orbits.push({body:body,speed:speed,axisSpeed,center:center,rotor:rotor})
     }
     addOrbit(mercury,0.01,0.01)
