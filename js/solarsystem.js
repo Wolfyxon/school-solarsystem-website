@@ -18,7 +18,9 @@ function texture(path){
 
 const textures = {
     "sun":texture("../assets/img/textures/sun.jpeg"),
-    "mercury":texture("../assets/img/textures/mercury.jpg")
+    "mercury":texture("../assets/img/textures/mercury.jpg"),
+    "venus":texture("../assets/img/textures/venus.jpeg"),
+    "earth":texture("../assets/img/textures/earth.png")
 }
 
 window.addEventListener('load', () => {
@@ -59,9 +61,17 @@ window.addEventListener('load', () => {
     sun.layers.set(LAYER_GLOW)
     scene.add(sun)
 
-    const mercury = new TH.Mesh(new TH.IcosahedronGeometry(3, 20),new TH.MeshBasicMaterial({ map:textures.mercury }))
+    const mercury = new TH.Mesh(new TH.IcosahedronGeometry(1, 20),new TH.MeshBasicMaterial({ map:textures.mercury }))
     mercury.position.set(25,0,0)
     scene.add(mercury)
+
+    const venus = new TH.Mesh(new TH.IcosahedronGeometry(3, 20),new TH.MeshBasicMaterial({ map:textures.venus }))
+    venus.position.set(35,0,0)
+    scene.add(venus)
+
+    const earth = new TH.Mesh(new TH.IcosahedronGeometry(3, 20),new TH.MeshBasicMaterial({ map:textures.earth }))
+    earth.position.set(50,0,0)
+    scene.add(earth)
 
     camera.position.z = 50;
     const controls = new TrackballControls(camera,renderer.domElement)
@@ -73,7 +83,6 @@ window.addEventListener('load', () => {
         controls.update();
         camera.layers.set(1);
         effects.render();
-        
         renderer.clearDepth();
         camera.layers.set(0);
         renderer.render(scene, camera);
