@@ -89,7 +89,7 @@ window.addEventListener('load', () => {
     const sun = new TH.Mesh(new TH.IcosahedronGeometry(50, 20),new TH.MeshBasicMaterial({ map: textures.sun }));
     sun.layers.set(LAYER_GLOW)
     scene.add(sun)
-    const sunLight = new TH.PointLight("white",20,400)
+    const sunLight = new TH.PointLight("white",3,1000)
     sunLight.shadow.mapSize.width = 1024
     sunLight.shadow.mapSize.height = 1024
     scene.add(sunLight)
@@ -144,6 +144,11 @@ window.addEventListener('load', () => {
     fixRing()
     ///////////////
 
+    const uranus = new TH.Mesh(new TH.IcosahedronGeometry(6, 25),new TH.MeshLambertMaterial({ map:textures.uranus }))
+    uranus.position.set(750,0,0)
+
+    const neptune = new TH.Mesh(new TH.IcosahedronGeometry(3, 25),new TH.MeshLambertMaterial({ map:textures.neptune }))
+    neptune.position.set(900,0,0)
 
 
     camera.position.z = 200;
@@ -163,8 +168,8 @@ window.addEventListener('load', () => {
     var orbits = []
     function addOrbit(body,speed,axisSpeed,center=sun){
         const rotor = new TH.Object3D()
+        rotor.rotateY(Math.floor(Math.random() * 360))
         const centerPos = center.position
-        //rotor.position.set(centerPos.x,centerPos.y,centerPos.z)
         center.add(rotor)
         rotor.add(body)
         orbits.push({body:body,speed:speed,axisSpeed,center:center,rotor:rotor})
@@ -175,6 +180,9 @@ window.addEventListener('load', () => {
     addOrbit(earthMoon,0.002,0,earth)
     addOrbit(jupiter,0.001,0.01)
     addOrbit(saturn,0.0001,0.009)
+    addOrbit(uranus,0.00015,0.01)
+    addOrbit(neptune,0.00016,0.02)
+
 
 
     //TODO: fix sun not ocluding planets
