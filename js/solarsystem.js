@@ -26,8 +26,17 @@ const textures = {
 
     "mercury":texture("../assets/img/textures/mercury.jpg"),
     "venus":texture("../assets/img/textures/venus.jpeg"),
+
     "earth":texture("../assets/img/textures/earth.png"),
-    "moon":texture("../assets/img/textures/moon.jpg")
+    "moon":texture("../assets/img/textures/moon.jpg"),
+
+    "jupiter":texture("../assets/img/textures/jupiter.jpg"),
+
+    "saturn":texture("../assets/img/textures/saturn.jpg"),
+    "saturn_ring":texture("../assets/img/textures/saturn_ring.png"),
+
+    "uranus":texture("../assets/img/textures/uranus.jpg"),
+    "neptune":texture("../assets/img/textures/neptune.jpg")
 }
 
 window.addEventListener('load', () => {
@@ -80,12 +89,12 @@ window.addEventListener('load', () => {
     const sun = new TH.Mesh(new TH.IcosahedronGeometry(50, 20),new TH.MeshBasicMaterial({ map: textures.sun }));
     sun.layers.set(LAYER_GLOW)
     scene.add(sun)
-    const sunLight = new TH.PointLight("white",20,300)
+    const sunLight = new TH.PointLight("white",20,400)
     sunLight.shadow.mapSize.width = 1024
     sunLight.shadow.mapSize.height = 1024
     scene.add(sunLight)
 
-    const mercury = new TH.Mesh(new TH.IcosahedronGeometry(1, 20),new TH.MeshLambertMaterial({ map:textures.mercury}))
+    const mercury = new TH.Mesh(new TH.IcosahedronGeometry(1, 20),new TH.MeshLambertMaterial({ map:textures.mercury,color:"white"}))
     mercury.position.set(80,0,0)
     mercury.receiveShadow = true
     mercury.castShadow = true
@@ -94,13 +103,48 @@ window.addEventListener('load', () => {
     const venus = new TH.Mesh(new TH.IcosahedronGeometry(3, 25),new TH.MeshLambertMaterial({ map:textures.venus }))
     venus.position.set(120,0,0)
 
-    /////////////////////////////////////////////
+    /////////EARTH ZONE
     const earth = new TH.Mesh(new TH.IcosahedronGeometry(3, 25),new TH.MeshLambertMaterial({ map:textures.earth }))
     earth.position.set(160,0,0)
 
     const earthMoon = new TH.Mesh(new TH.IcosahedronGeometry(0.5, 20),new TH.MeshLambertMaterial({ map:textures.moon }))
     earthMoon.position.set(10,0,0)
     ////////////////////////////
+
+
+    function genAsteroidBelt(){
+        //TODO: ^
+    }
+
+    //TODO: jupiter moons
+    const jupiter = new TH.Mesh(new TH.IcosahedronGeometry(20, 25),new TH.MeshLambertMaterial({ map:textures.jupiter }))
+    jupiter.position.set(350,0,0)
+
+
+    //////SATURN ZONE
+    const saturn = new TH.Mesh(new TH.IcosahedronGeometry(20, 25),new TH.MeshLambertMaterial({ map:textures.saturn }))
+    saturn.position.set(500,0,0)
+    const saturnRing = new TH.Mesh(new TH.RingGeometry(25,50,50),new TH.MeshLambertMaterial({ map:textures.saturn_ring,side: TH.DoubleSide,transparent:true }))
+    saturnRing.rotateX(90)
+    saturn.add(saturnRing)
+    function fixRing(){
+        const geometry = saturnRing.geometry
+        var uvs = geometry.attributes.uv.array;
+        var phiSegments = geometry.parameters.phiSegments || 0;
+        var thetaSegments = geometry.parameters.thetaSegments || 0;
+        phiSegments = phiSegments !== undefined ? Math.max( 1, phiSegments ) : 1;
+        thetaSegments = thetaSegments !== undefined ? Math.max( 3, thetaSegments ) : 8;
+        for ( var c = 0, j = 0; j <= phiSegments; j ++ ) {
+            for ( var i = 0; i <= thetaSegments; i ++ ) {
+                uvs[c++] = i / thetaSegments,
+                    uvs[c++] = j / phiSegments;
+            }
+        }
+    }
+    fixRing()
+    ///////////////
+
+
 
     camera.position.z = 200;
     const controls = new TrackballControls(camera,renderer.domElement)
@@ -128,8 +172,9 @@ window.addEventListener('load', () => {
     addOrbit(mercury,0.01,0.01)
     addOrbit(venus,0.007,0.007)
     addOrbit(earth,0.004,0.013)
-    addOrbit(earthMoon,0.007,0,earth)
-    console.log(orbits)
+    addOrbit(earthMoon,0.002,0,earth)
+    addOrbit(jupiter,0.001,0.01)
+    addOrbit(saturn,0.0001,0.009)
 
 
     //TODO: fix sun not ocluding planets
