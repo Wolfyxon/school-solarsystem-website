@@ -42,11 +42,6 @@ const textures = {
     "neptune":texture("../assets/img/textures/neptune.jpg")
 }
 
-var autoRot = false
-export function setAutoRotate(enabled){
-    autoRot = enabled
-}
-
 window.addEventListener('load', () => {
     var width = window.innerWidth*0.95
     var height = window.innerHeight
@@ -163,6 +158,8 @@ window.addEventListener('load', () => {
     controls.rotateSpeed = 0.5
     controls.target.set( 0, 0, 0 )
     controls.maxDistance = 2000
+    controls.enableDamping = true
+    controls.dampingFactor = 0.2
     scene.add(camera)
 
     const bodies = [sun, mercury,venus,earth]
