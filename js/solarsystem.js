@@ -144,13 +144,13 @@ window.addEventListener('load', () => {
     const mars = new TH.Mesh(new TH.IcosahedronGeometry(2, 20),new TH.MeshLambertMaterial({ map:textures.mars }))
     mars.position.set(220,0,0)
 
+    const asteroidRotor = new TH.Object3D()
     function genAsteroidBelt(){
-        const rotor = new TH.Object3D()
-        scene.add(rotor)
+        const rotor = asteroidRotor
         for(var i=0;i<400;i++){
             const s = randint(1,5)
             const asteroid = new TH.Mesh(new TH.BoxGeometry(s, s,s),new TH.MeshLambertMaterial({ color: "gray" }))
-            scene.add(asteroid)
+            rotor.add(asteroid)
             asteroid.rotateY(deg2rad(randint(0,360)))
             asteroid.translateX(randint(250,300))
 
@@ -158,7 +158,7 @@ window.addEventListener('load', () => {
             asteroid.rotateY(deg2rad(randint(0,360)))
             asteroid.rotateZ(deg2rad(randint(0,360)))
         }
-
+        scene.add(rotor)
     }
     genAsteroidBelt()
 
@@ -261,6 +261,7 @@ window.addEventListener('load', () => {
     const animate = () => {
         requestAnimationFrame(animate);
         sun.rotateY(0.001)
+        asteroidRotor.rotateY(0.0005)
         for(var i=0;i<orbits.length;i++){
             const orbit = orbits[i]
             const body = orbit.body
@@ -268,6 +269,8 @@ window.addEventListener('load', () => {
             rotor.rotateY(orbit.speed)
             body.rotateY(orbit.axisSpeed)
         }
+
+
         controls.update();
         effects.render()
         renderer.render(scene, camera);
