@@ -2,12 +2,16 @@
 @import url("topbar.css");
 
 
+#didyouknow-container {
+ margin-top: 1%;
+ background-image: url("../assets/img/glimpse_of_the_milky_way.jpg");
+}
+
 #didyouknow {
  text-align: center;
  background-color: white;
  color: black;
  padding: 1%;
- margin-top: 1%;
  border-radius: 10px;
  width: 60%;
  margin-left: 20%;
