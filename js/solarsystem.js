@@ -4,6 +4,18 @@ import {RenderPass} from "../node_modules/three/examples/jsm/postprocessing/Rend
 import {EffectComposer} from "../node_modules/three/examples/jsm/postprocessing/EffectComposer.js";
 import {OrbitControls} from "../node_modules/three/examples/jsm/controls/OrbitControls.js";
 
+function wait(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function randint(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+}
+
+
+
 function deg2rad(degrees) {
     return degrees * (Math.PI/180);
 }
@@ -58,6 +70,7 @@ window.addEventListener('load', () => {
     })
     renderTarget.samples = 8
     TH.ColorManagement.legacyMode = false
+    renderer.autoClear = false
     renderer.outputEncoding = TH.sRGBEncoding
     renderer.autoClear = false
     renderer.setClearColor(0x000000, 0.0);
@@ -67,11 +80,13 @@ window.addEventListener('load', () => {
     const cubeTextureLoader = new TH.CubeTextureLoader();
 
 
-
+    const bgScene = new TH.Scene()
 
     //sun disappears when the background is added :<
+
+
     /*
-        const starsTxt = "../assets/img/stars.jpg"
+    const starsTxt = "../assets/img/stars.jpg"
         scene.background = cubeTextureLoader.load([
             starsTxt,
             starsTxt,
@@ -79,8 +94,8 @@ window.addEventListener('load', () => {
             starsTxt,
             starsTxt,
             starsTxt
-        ]);*/
-
+        ]);
+    */
 
 
     const effects = new EffectComposer(renderer,renderTarget)
@@ -129,9 +144,23 @@ window.addEventListener('load', () => {
     const mars = new TH.Mesh(new TH.IcosahedronGeometry(2, 20),new TH.MeshLambertMaterial({ map:textures.mars }))
     mars.position.set(220,0,0)
 
-    function genAsteroidBelt(){
-        //TODO: ^
+    async function genAsteroidBelt(){
+        const rotor = new TH.Object3D()
+        scene.add(rotor)
+        for(var i=0;i<400;i++){
+            const s = randint(1,5)
+            const asteroid = new TH.Mesh(new TH.BoxGeometry(s, s,s),new TH.MeshLambertMaterial({ color: "gray" }))
+            scene.add(asteroid)
+            asteroid.rotateY(deg2rad(randint(0,360)))
+            asteroid.translateX(randint(250,300))
+
+            asteroid.rotateX(deg2rad(randint(0,360)))
+            asteroid.rotateY(deg2rad(randint(0,360)))
+            asteroid.rotateZ(deg2rad(randint(0,360)))
+        }
+
     }
+    genAsteroidBelt()
 
     //TODO: jupiter moons
     const jupiter = new TH.Mesh(new TH.IcosahedronGeometry(20, 25),new TH.MeshLambertMaterial({ map:textures.jupiter }))
@@ -214,6 +243,7 @@ window.addEventListener('load', () => {
     addOrbit(neptune,0.00016,0.02)
 
 
+
     function updateSize(){
         width = window.innerWidth*0.95
         height = height = window.innerHeight
@@ -221,11 +251,13 @@ window.addEventListener('load', () => {
         renderer.setPixelRatio(window.devicePixelRatio ? window.devicePixelRatio : 1);
         renderer.setSize(width, height)
         effects.setSize(width,height)
+        bloom.setSize(width,height)
+        renderTarget.setSize(width,height)
     }
     updateSize()
 
     window.addEventListener("resize", updateSize)
-
+    camera.layers.enableAll()
     const animate = () => {
         requestAnimationFrame(animate);
         sun.rotateY(0.001)
@@ -238,10 +270,7 @@ window.addEventListener('load', () => {
         }
         controls.update();
         effects.render()
-        camera.layers.enableAll()
         renderer.render(scene, camera);
-        bloom.setSize(width,height)
-        renderTarget.setSize(width,height)
 
       };
       
