@@ -2,7 +2,7 @@ const facts = [
     "współczesne biurowe kalkulatory mają większą moc niż komputer Apollo który zabrał ludzi na księżyc?",
     "na Marsie, zachod słońca jest niebieski?",
     "na Ziemi jest więcej drzew niż gwiazd w naszej galaktyce?",
-    "nasz Księżyc jest z tych samych skał co Ziemskie?"
+    "nasz Księżyc składa się z tych samych skał co Ziemia?"
 ]
 
 window.addEventListener('load', () => {
