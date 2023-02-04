@@ -27,20 +27,20 @@ const textures = {
     "stars":texture("../assets/img/stars.jpg",false), //https://github.com/WaelYasmina/solarsystem/blob/main/src/img/stars.jpg?raw=true
     "sun":texture("../assets/img/textures/sun.jpeg",false),
 
-    "mercury":texture("../assets/img/textures/mercury.jpg"),
-    "venus":texture("../assets/img/textures/venus.jpeg"),
+    "mercury":texture("../assets/img/textures/planets/mercury.jpg"),
+    "venus":texture("../assets/img/textures/planets/venus.jpeg"),
 
-    "earth":texture("../assets/img/textures/earth.png"),
-    "moon":texture("../assets/img/textures/moon.jpg"),
+    "earth":texture("../assets/img/textures/planets/earth.png"),
+    "moon":texture("../assets/img/textures/planets/moon.jpg"),
 
-    "mars":texture("../assets/img/textures/mars.jpg"),
-    "jupiter":texture("../assets/img/textures/jupiter.jpg"),
+    "mars":texture("../assets/img/textures/planets/mars.jpg"),
+    "jupiter":texture("../assets/img/textures/planets/jupiter.jpg"),
 
-    "saturn":texture("../assets/img/textures/saturn.jpg"),
-    "saturn_ring":texture("../assets/img/textures/saturn_ring.png"),
+    "saturn":texture("../assets/img/textures/planets/saturn.jpg"),
+    "saturn_ring":texture("../assets/img/textures/planets/saturn_ring.png"),
 
-    "uranus":texture("../assets/img/textures/uranus.jpg"),
-    "neptune":texture("../assets/img/textures/neptune.jpg")
+    "uranus":texture("../assets/img/textures/planets/uranus.jpg"),
+    "neptune":texture("../assets/img/textures/planets/neptune.jpg")
 }
 
 window.addEventListener('load', () => {
