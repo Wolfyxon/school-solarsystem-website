@@ -1,9 +1,9 @@
 import * as TH from '../node_modules/three/build/three.module.js'
-//i had to modify these modules so they will import the main module properly lmao
 import {UnrealBloomPass} from "../node_modules/three/examples/jsm/postprocessing/UnrealBloomPass.js";
 import {RenderPass} from "../node_modules/three/examples/jsm/postprocessing/RenderPass.js";
 import {EffectComposer} from "../node_modules/three/examples/jsm/postprocessing/EffectComposer.js";
 import {OrbitControls} from "../node_modules/three/examples/jsm/controls/OrbitControls.js";
+
 
 function deg2rad(degrees) {
     return degrees * (Math.PI/180);
@@ -62,9 +62,13 @@ window.addEventListener('load', () => {
     scene.add(ambientLight)
     const cubeTextureLoader = new TH.CubeTextureLoader();
 
-    /*
+
+
+
+
     //sun disappears when the background is added :<
-    const starsTxt = "../assets/img/stars.jpg"
+    /*
+        const starsTxt = "../assets/img/stars.jpg"
         scene.background = cubeTextureLoader.load([
             starsTxt,
             starsTxt,
@@ -72,11 +76,11 @@ window.addEventListener('load', () => {
             starsTxt,
             starsTxt,
             starsTxt
-        ]);
-     */
+        ]);*/
+
+
 
     const effects = new EffectComposer(renderer)
-    const finalComposer = new EffectComposer( renderer );
     const bloom = new UnrealBloomPass(
         new TH.Vector2(window.innerWidth, window.innerHeight),
         1.5,
@@ -90,6 +94,7 @@ window.addEventListener('load', () => {
     effects.renderToScreen = true
     effects.addPass(renderPass)
     effects.addPass(bloom)
+
 
     const sun = new TH.Mesh(new TH.IcosahedronGeometry(50, 20),new TH.MeshBasicMaterial({ map: textures.sun }));
     sun.layers.set(LAYER_GLOW)
@@ -131,7 +136,7 @@ window.addEventListener('load', () => {
     const saturn = new TH.Mesh(new TH.IcosahedronGeometry(20, 25),new TH.MeshLambertMaterial({ map:textures.saturn }))
     saturn.position.set(500,0,0)
     const saturnRing = new TH.Mesh(new TH.RingGeometry(25,50,50),new TH.MeshLambertMaterial({ map:textures.saturn_ring,side: TH.DoubleSide,transparent:true }))
-    saturnRing.rotateX(90)
+    saturnRing.rotateX(deg2rad(90))
     saturn.add(saturnRing)
     function fixRing(){
         const geometry = saturnRing.geometry
@@ -205,7 +210,8 @@ window.addEventListener('load', () => {
 
 
 
-    //TODO: fix sun not ocluding planets
+
+    //TODO: fix sun not occluding planets
     const animate = () => {
         requestAnimationFrame(animate);
         sun.rotateY(0.001)
@@ -216,8 +222,11 @@ window.addEventListener('load', () => {
             rotor.rotateY(orbit.speed)
             body.rotateY(orbit.axisSpeed)
         }
-        renderer.clear();
+        //camera.layers.enableAll()
+
+        //renderer.clear();
         controls.update();
+
         camera.layers.set(1);
         effects.render();
         renderer.clearDepth();
