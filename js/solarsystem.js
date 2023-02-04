@@ -12,8 +12,6 @@ function Vector3(x,y,z){
     return new TH.Vector3(x,y,z);
 }
 
-const LAYER_MAIN=0, LAYER_GLOW=1
-
 function texture(path,shaded=true){
     const tx = new TH.TextureLoader().load(path)
     if(shaded){
@@ -46,19 +44,25 @@ window.addEventListener('load', () => {
     var width = window.innerWidth*0.95
     var height = window.innerHeight
 
-
-
     const canvas = document.getElementById("solarsys-canvas")
     canvas.style.pointerEvents = "none" //js doesn't see the CSS declared pointerEvents
     const scene = new TH.Scene();
     const camera = new TH.PerspectiveCamera(70, (window.innerWidth / window.innerHeight), 0.1, 10000);
+
     const renderer = new TH.WebGLRenderer({canvas: canvas, antialias: true});
     const renderPass = new RenderPass(scene,camera)
+    const renderTarget = new TH.WebGLRenderTarget(width, height, {
+        type: TH.HalfFloatType,
+        format: TH.RGBAFormat,
+        encoding: TH.sRGBEncoding,
+    })
+    renderTarget.samples = 8
+    TH.ColorManagement.legacyMode = false
+    renderer.outputEncoding = TH.sRGBEncoding
     renderer.autoClear = false
-    renderer.setPixelRatio(window.devicePixelRatio ? window.devicePixelRatio : 1);
     renderer.setClearColor(0x000000, 0.0);
     renderer.shadowMap.enabled = true
-    const ambientLight = new TH.AmbientLight( "white",0.2 );
+    const ambientLight = new TH.AmbientLight( "white",0.07 );
     scene.add(ambientLight)
     const cubeTextureLoader = new TH.CubeTextureLoader();
 
@@ -66,6 +70,7 @@ window.addEventListener('load', () => {
         width = window.innerWidth*0.95
         height = height = window.innerHeight
         camera.aspect = (window.innerWidth / window.innerHeight)
+        renderer.setPixelRatio(window.devicePixelRatio ? window.devicePixelRatio : 1);
         renderer.setSize(width, height)
     }
     updateSize()
@@ -86,26 +91,28 @@ window.addEventListener('load', () => {
 
 
 
-    const effects = new EffectComposer(renderer)
+    const effects = new EffectComposer(renderer,renderTarget)
     const bloom = new UnrealBloomPass(
         new TH.Vector2(window.innerWidth, window.innerHeight),
-        1.5,
-        0.4,
-        0.85
+        1,
+        1,
+        1
     );
-    bloom.threshold = 0;
-    bloom.strength = 2;
-    bloom.radius = 0;
     effects.setSize(width,height)
     effects.renderToScreen = true
     effects.addPass(renderPass)
     effects.addPass(bloom)
 
 
-    const sun = new TH.Mesh(new TH.IcosahedronGeometry(50, 20),new TH.MeshBasicMaterial({ map: textures.sun }));
-    sun.layers.set(LAYER_GLOW)
+    const sun = new TH.Mesh(new TH.IcosahedronGeometry(50, 20),new TH.MeshStandardMaterial({
+        map: textures.sun,toneMapped: false,
+        emissive: "orange",
+        emissiveIntensity: 0.8,
+    }
+    ));
+    sun.material.color.setRGB(50,10,10)
     scene.add(sun)
-    const sunLight = new TH.PointLight("white",3,1000)
+    const sunLight = new TH.PointLight("white",1,1000)
     sunLight.shadow.mapSize.width = 1024
     sunLight.shadow.mapSize.height = 1024
     scene.add(sunLight)
@@ -161,7 +168,7 @@ window.addEventListener('load', () => {
     fixRing()
     ///////////////
 
-    const uranus = new TH.Mesh(new TH.IcosahedronGeometry(6, 25),new TH.MeshLambertMaterial({ map:textures.uranus }))
+    const uranus = new TH.Mesh(new TH.IcosahedronGeometry(6, 25),new TH.MeshStandardMaterial({ map:textures.uranus }))
     uranus.position.set(750,0,0)
 
     const neptune = new TH.Mesh(new TH.IcosahedronGeometry(3, 25),new TH.MeshLambertMaterial({ map:textures.neptune }))
@@ -214,11 +221,8 @@ window.addEventListener('load', () => {
     addOrbit(uranus,0.00015,0.01)
     addOrbit(neptune,0.00016,0.02)
 
-
     window.addEventListener("resize", updateSize)
 
-
-    //TODO: fix sun not occluding planets
     const animate = () => {
         requestAnimationFrame(animate);
         sun.rotateY(0.001)
@@ -229,15 +233,9 @@ window.addEventListener('load', () => {
             rotor.rotateY(orbit.speed)
             body.rotateY(orbit.axisSpeed)
         }
-        //camera.layers.enableAll()
-
-        //renderer.clear();
         controls.update();
-
-        camera.layers.set(1);
-        effects.render();
-        renderer.clearDepth();
-        camera.layers.set(0);
+        effects.render()
+        camera.layers.enableAll()
         renderer.render(scene, camera);
 
       };
