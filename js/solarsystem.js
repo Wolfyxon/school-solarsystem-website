@@ -47,6 +47,8 @@ window.addEventListener('load', () => {
     var width = window.innerWidth*0.95
     var height = window.innerHeight
 
+
+
     const canvas = document.getElementById("solarsys-canvas")
     canvas.style.pointerEvents = "none" //js doesn't see the CSS declared pointerEvents
     const scene = new TH.Scene();
@@ -54,7 +56,6 @@ window.addEventListener('load', () => {
     const renderer = new TH.WebGLRenderer({canvas: canvas, antialias: true});
     const renderPass = new RenderPass(scene,camera)
     renderer.autoClear = false
-    renderer.setSize(width, height)
     renderer.setPixelRatio(window.devicePixelRatio ? window.devicePixelRatio : 1);
     renderer.setClearColor(0x000000, 0.0);
     renderer.shadowMap.enabled = true
@@ -62,7 +63,13 @@ window.addEventListener('load', () => {
     scene.add(ambientLight)
     const cubeTextureLoader = new TH.CubeTextureLoader();
 
-
+    function updateSize(){
+        width = window.innerWidth*0.95
+        height = height = window.innerHeight
+        camera.aspect = (window.innerWidth / window.innerHeight)
+        renderer.setSize(width, height)
+    }
+    updateSize()
 
 
 
@@ -209,6 +216,7 @@ window.addEventListener('load', () => {
     addOrbit(neptune,0.00016,0.02)
 
 
+    window.addEventListener("resize", updateSize)
 
 
     //TODO: fix sun not occluding planets
