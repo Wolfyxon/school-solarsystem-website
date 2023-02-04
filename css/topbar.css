@@ -8,9 +8,11 @@
  vertical-align: top;
 }
 #title {
+ user-select: none;
  font-size: 170%;
  padding-top: 5px;
  width: 70%;
+ font-weight: bold;
  display: inline-block;
 }
 #topbar-buttons {
@@ -29,4 +31,8 @@
 }
 #topbar-buttons a:hover {
  text-decoration: underline;
+}
+
+.bold-a {
+ font-weight: bold;
 }
