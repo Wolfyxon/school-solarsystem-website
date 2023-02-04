@@ -66,14 +66,6 @@ window.addEventListener('load', () => {
     scene.add(ambientLight)
     const cubeTextureLoader = new TH.CubeTextureLoader();
 
-    function updateSize(){
-        width = window.innerWidth*0.95
-        height = height = window.innerHeight
-        camera.aspect = (window.innerWidth / window.innerHeight)
-        renderer.setPixelRatio(window.devicePixelRatio ? window.devicePixelRatio : 1);
-        renderer.setSize(width, height)
-    }
-    updateSize()
 
 
 
@@ -98,7 +90,7 @@ window.addEventListener('load', () => {
         1,
         1
     );
-    effects.setSize(width,height)
+
     effects.renderToScreen = true
     effects.addPass(renderPass)
     effects.addPass(bloom)
@@ -221,6 +213,17 @@ window.addEventListener('load', () => {
     addOrbit(uranus,0.00015,0.01)
     addOrbit(neptune,0.00016,0.02)
 
+
+    function updateSize(){
+        width = window.innerWidth*0.95
+        height = height = window.innerHeight
+        camera.aspect = (window.innerWidth / window.innerHeight)
+        renderer.setPixelRatio(window.devicePixelRatio ? window.devicePixelRatio : 1);
+        renderer.setSize(width, height)
+        effects.setSize(width,height)
+    }
+    updateSize()
+
     window.addEventListener("resize", updateSize)
 
     const animate = () => {
@@ -237,6 +240,8 @@ window.addEventListener('load', () => {
         effects.render()
         camera.layers.enableAll()
         renderer.render(scene, camera);
+        bloom.setSize(width,height)
+        renderTarget.setSize(width,height)
 
       };
       
