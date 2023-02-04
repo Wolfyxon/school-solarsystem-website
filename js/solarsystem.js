@@ -98,7 +98,7 @@ window.addEventListener('load', () => {
 
     const sun = new TH.Mesh(new TH.IcosahedronGeometry(50, 20),new TH.MeshStandardMaterial({
         map: textures.sun,toneMapped: false,
-        emissive: "orange",
+        emissive: 0xFF8700,
         emissiveIntensity: 0.8,
     }
     ));
