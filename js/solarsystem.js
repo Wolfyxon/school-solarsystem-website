@@ -33,6 +33,7 @@ const textures = {
     "earth":texture("../assets/img/textures/earth.png"),
     "moon":texture("../assets/img/textures/moon.jpg"),
 
+    "mars":texture("../assets/img/textures/mars.jpg"),
     "jupiter":texture("../assets/img/textures/jupiter.jpg"),
 
     "saturn":texture("../assets/img/textures/saturn.jpg"),
@@ -115,6 +116,9 @@ window.addEventListener('load', () => {
     earthMoon.position.set(10,0,0)
     ////////////////////////////
 
+    const mars = new TH.Mesh(new TH.IcosahedronGeometry(2, 20),new TH.MeshLambertMaterial({ map:textures.mars }))
+    mars.position.set(220,0,0)
+
     function genAsteroidBelt(){
         //TODO: ^
     }
@@ -193,6 +197,7 @@ window.addEventListener('load', () => {
     addOrbit(venus,0.007,0.007)
     addOrbit(earth,0.004,0.013)
     addOrbit(earthMoon,0.002,0,earth)
+    addOrbit(mars,0.003,0.015)
     addOrbit(jupiter,0.001,0.01)
     addOrbit(saturn,0.0001,0.009)
     addOrbit(uranus,0.00015,0.01)
