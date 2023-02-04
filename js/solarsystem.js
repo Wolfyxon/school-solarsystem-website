@@ -144,7 +144,7 @@ window.addEventListener('load', () => {
     const mars = new TH.Mesh(new TH.IcosahedronGeometry(2, 20),new TH.MeshLambertMaterial({ map:textures.mars }))
     mars.position.set(220,0,0)
 
-    async function genAsteroidBelt(){
+    function genAsteroidBelt(){
         const rotor = new TH.Object3D()
         scene.add(rotor)
         for(var i=0;i<400;i++){
