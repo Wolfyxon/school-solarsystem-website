@@ -1,8 +1,12 @@
 const facts = [
-    "współczesne biurowe kalkulatory mają większą moc niż komputer Apollo który zabrał ludzi na księżyc?",
-    "na Marsie, zachod słońca jest niebieski?",
+    "współczesne zwyczajne kalkulatory mają większą moc niż komputer pokładowy Apollo który zabrał ludzi na księżyc?",
+    "na Marsie, Zachod słońca jest niebieski?",
     "na Ziemi jest więcej drzew niż gwiazd w naszej galaktyce?",
-    "nasz Księżyc składa się z tych samych skał co Ziemia?"
+    "nasz Księżyc składa się z tych samych skał co Ziemia?",
+    "światło ze Słońca potrzebuje 7 minut by dotrzeć do Ziemi?",
+    "ludzie zajmują tylko 0.007% całej historii Ziemi?",
+    "Jowisz jest większy niż niektóre gwiazdy?",
+    "najprawdopodobniej ok. 4 miliardy lat temu, na Marsie istniały warunki do powstania życia?"
 ]
 
 window.addEventListener('load', () => {

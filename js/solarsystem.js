@@ -4,7 +4,6 @@ import {RenderPass} from "../node_modules/three/examples/jsm/postprocessing/Rend
 import {EffectComposer} from "../node_modules/three/examples/jsm/postprocessing/EffectComposer.js";
 import {OrbitControls} from "../node_modules/three/examples/jsm/controls/OrbitControls.js";
 
-
 function deg2rad(degrees) {
     return degrees * (Math.PI/180);
 }

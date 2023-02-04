@@ -1,4 +1,4 @@
-# Solar systen
+# Solar system
 Hi, this is a website I made for a school project. It includes few articles about space and our solar system and also a 3D interactive model of it.
 
 ## NOTE
