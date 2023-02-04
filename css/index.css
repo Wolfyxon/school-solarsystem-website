@@ -4,7 +4,9 @@
 
 #didyouknow-container {
  margin-top: 1%;
+ padding: 1%;
  background-image: url("../assets/img/glimpse_of_the_milky_way.jpg");
+ background-size: cover;
 }
 
 #didyouknow {
