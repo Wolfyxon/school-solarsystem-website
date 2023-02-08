@@ -56,6 +56,39 @@
  color: gray;
 }
 
+#celestial-bodes {
+ padding-bottom: 5%;
+ text-align: center;
+ display: table;
+}
+
+.body {
+ display: table-cell;
+ vertical-align: top;
+ text-decoration: none;
+ text-align: center;
+ background-color: #313134;
+ border-radius: 4px;
+ width: 10%;
+ height: 10%;
+ max-height: 10%;
+ transition: 0.1s;
+}
+.body:hover {
+ scale: 1.1;
+ transition: 0.1s;
+}
+
+.body img {
+ width: 150px;
+ height: 150px;
+}
+.body p {
+ color: white;
+ height: 120%;
+}
+
+
 .fade-blink {
  opacity: 0;
  animation-name: fade-blink;

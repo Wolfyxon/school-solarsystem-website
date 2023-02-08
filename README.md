@@ -9,6 +9,7 @@ This **does not** require Node to work, even if there's `node_modules`, but it n
 - 3D render: https://threejs.org/
 ### Images
 - https://www.jpl.nasa.gov/images/pia03239-a-glimpse-of-the-milky-way
+- https://d2pn8kiwq2w21t.cloudfront.net/images/jpegPIA21024.width-1600.jpg
 #### planet textures
 https://www.solarsystemscope.com/textures/
 - Mercury: https://www.solarsystemscope.com/textures/download/2k_mercury.jpg
