@@ -23,10 +23,7 @@
 }
 
 #canvas-container {
- margin-top: 1%;
- width: 100%;
- width: 95%;
- overflow: hidden;
+ margin-top: 2%;
  margin-left: 2.5%;
 }
 #solarsys-canvas {

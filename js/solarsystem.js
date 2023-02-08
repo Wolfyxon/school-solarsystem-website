@@ -243,11 +243,15 @@ window.addEventListener('load', () => {
     addOrbit(neptune,0.00016,0.02)
 
 
-
+    const canvPar = canvas.parentNode
     function updateSize(){
         width = window.innerWidth*0.95
         height = height = window.innerHeight
         camera.aspect = (window.innerWidth / window.innerHeight)
+        if(canvPar) {
+            canvPar.style.width = width.toString()+"px"
+            canvPar.style.height = height.toString()+"px"
+        }
         renderer.setPixelRatio(window.devicePixelRatio ? window.devicePixelRatio : 1);
         renderer.setSize(width, height)
         effects.setSize(width,height)
