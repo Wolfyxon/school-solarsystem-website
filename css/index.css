@@ -3,7 +3,6 @@
 
 
 #didyouknow-container {
- margin-top: 1%;
  padding: 1%;
  background-image: url("../assets/img/glimpse_of_the_milky_way.jpg");
  background-size: cover;
@@ -11,12 +10,16 @@
 
 #didyouknow {
  text-align: center;
- background-color: white;
+ background-color: #232323;
  color: black;
  padding: 1%;
  border-radius: 10px;
  width: 60%;
  margin-left: 20%;
+ color: white;
+}
+#didyouknow h1 {
+ color: goldenrod;
 }
 
 #canvas-container {

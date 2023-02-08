@@ -8,6 +8,10 @@ body,html {
 
 body {
  font-family: "Roboto";
- background-color: #131b26;
+ background-color: #2c2929; /*#131b26*/
  color: white;
+}
+
+a {
+ color: yellow;
 }

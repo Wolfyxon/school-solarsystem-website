@@ -1,5 +1,5 @@
 #topbar {
- background-color: #191991;
+ background-color: #000000;
  color: white;
  padding: 1%;
 }
@@ -28,11 +28,13 @@
  text-decoration: none;
  font-weight: 0;
  color: white;
- /*font-size: 130%;*/
  font-size: 1.2vw;
+ transition: 0.1s color;
 }
 #topbar-buttons a:hover {
  text-decoration: underline;
+ color: #fff0a6;
+ transition: 0.1s color;
 }
 
 .bold-a {
