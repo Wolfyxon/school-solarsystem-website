@@ -195,7 +195,7 @@ window.addEventListener('load', () => {
     function genAsteroidBelt() {
         const rotor = asteroidRotor
         const asteroids = []
-        for (var i = 0; i < 400; i++) {
+        for (var i = 0; i < 200; i++) {
             const s = randint(1, 5)
             const geometry = new TH.Mesh(new TH.BoxGeometry(s, s, s), new TH.MeshLambertMaterial({ color: "gray" }))
             const asteroid = geometry
