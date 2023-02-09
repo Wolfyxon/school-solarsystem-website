@@ -11,7 +11,7 @@ This **does not** require Node to work, even if there's `node_modules`, but it n
 - https://www.jpl.nasa.gov/images/pia03239-a-glimpse-of-the-milky-way
 - https://d2pn8kiwq2w21t.cloudfront.net/images/jpegPIA21024.width-1600.jpg
 
-### Gallery
+#### Gallery
 Sun
 - https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA17669.jpg
 - https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA21873.jpg
@@ -19,6 +19,11 @@ Sun
 Mercury
 - https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA02408.jpg
 - https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA00437.jpg
+Venus
+- https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA00472.jpg
+- https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA01544.jpg
+- https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA00100.jpg
+- https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA00234.jpg
 #### planet textures
 https://www.solarsystemscope.com/textures/
 - Mercury: https://www.solarsystemscope.com/textures/download/2k_mercury.jpg
