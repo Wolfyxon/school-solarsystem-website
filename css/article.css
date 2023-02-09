@@ -1,8 +1,12 @@
 @import url("./global.css");
 
+body,html {
+    height: 100%;
+}
+
 #title-banner {
     margin: 0;
-    width: 100%;
+    width: 96%;
     text-align: center;
     display: block;
     padding: 2%;
@@ -11,13 +15,14 @@
 #content {
     display: table;
     margin-top: 1%;
-    width: 100%;
+    width: 90%;
+    margin-left: 5%;
     height: 100%;
 }
 
 #text {
     vertical-align: top;
-    background-color: wheat;
+    background-color: white;
     color: black;
     padding: 1%;
     width: 60%;
@@ -30,5 +35,9 @@
     overflow: scroll;
     width: 39%;
     background-color: black;
-    height: 100%;
+    text-align: center;
+}
+#gallery img {
+    width: 60%;
+    height: auto;
 }

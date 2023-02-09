@@ -10,6 +10,11 @@ This **does not** require Node to work, even if there's `node_modules`, but it n
 ### Images
 - https://www.jpl.nasa.gov/images/pia03239-a-glimpse-of-the-milky-way
 - https://d2pn8kiwq2w21t.cloudfront.net/images/jpegPIA21024.width-1600.jpg
+
+### Gallery
+- https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA17669.jpg
+- https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA21873.jpg
+- https://upload.wikimedia.org/wikipedia/commons/d/da/171879main_LimbFlareJan12_lg.jpg
 #### planet textures
 https://www.solarsystemscope.com/textures/
 - Mercury: https://www.solarsystemscope.com/textures/download/2k_mercury.jpg
