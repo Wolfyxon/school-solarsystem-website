@@ -12,9 +12,13 @@ This **does not** require Node to work, even if there's `node_modules`, but it n
 - https://d2pn8kiwq2w21t.cloudfront.net/images/jpegPIA21024.width-1600.jpg
 
 ### Gallery
+Sun
 - https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA17669.jpg
 - https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA21873.jpg
 - https://upload.wikimedia.org/wikipedia/commons/d/da/171879main_LimbFlareJan12_lg.jpg
+Mercury
+- https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA02408.jpg
+- https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA00437.jpg
 #### planet textures
 https://www.solarsystemscope.com/textures/
 - Mercury: https://www.solarsystemscope.com/textures/download/2k_mercury.jpg
