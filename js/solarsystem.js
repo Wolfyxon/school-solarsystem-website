@@ -144,23 +144,6 @@ window.addEventListener('load', () => {
     const mars = new TH.Mesh(new TH.IcosahedronGeometry(2, 20), new TH.MeshLambertMaterial({ map: textures.mars }))
     mars.position.set(220, 0, 0)
 
-    const asteroidRotor = new TH.Object3D()
-    function genAsteroidBelt() {
-        const rotor = asteroidRotor
-        for (var i = 0; i < 400; i++) {
-            const s = randint(1, 5)
-            const asteroid = new TH.Mesh(new TH.BoxGeometry(s, s, s), new TH.MeshLambertMaterial({ color: "gray" }))
-            rotor.add(asteroid)
-            asteroid.rotateY(deg2rad(randint(0, 360)))
-            asteroid.translateX(randint(250, 300))
-
-            asteroid.rotateX(deg2rad(randint(0, 360)))
-            asteroid.rotateY(deg2rad(randint(0, 360)))
-            asteroid.rotateZ(deg2rad(randint(0, 360)))
-        }
-        scene.add(rotor)
-    }
-    genAsteroidBelt()
 
     //TODO: jupiter moons
     const jupiter = new TH.Mesh(new TH.IcosahedronGeometry(20, 25), new TH.MeshLambertMaterial({ map: textures.jupiter }))
@@ -206,7 +189,30 @@ window.addEventListener('load', () => {
     scene.add(camera)
 
     const bodies = [sun, mercury, venus, earth]
-    sun.castShadow = true
+
+
+    const asteroidRotor = new TH.Object3D()
+    function genAsteroidBelt() {
+        const rotor = asteroidRotor
+        const asteroids = []
+        for (var i = 0; i < 400; i++) {
+            const s = randint(1, 5)
+            const geometry = new TH.Mesh(new TH.BoxGeometry(s, s, s), new TH.MeshLambertMaterial({ color: "gray" }))
+            const asteroid = geometry
+            rotor.add(asteroid)
+            asteroid.rotateY(deg2rad(randint(0, 360)))
+            asteroid.translateX(randint(250, 300))
+
+            asteroid.rotateX(deg2rad(randint(0, 360)))
+            asteroid.rotateY(deg2rad(randint(0, 360)))
+            asteroid.rotateZ(deg2rad(randint(0, 360)))
+            asteroids.push(asteroid)
+            bodies.push(asteroid)
+        }
+        scene.add(rotor)
+    }
+    genAsteroidBelt()
+    
     for (var i = 0; i < bodies.length; i++) {
         const body = bodies[i]
         body.receiveShadow = true
@@ -246,6 +252,7 @@ window.addEventListener('load', () => {
     addOrbit(saturn, 0.0001, 0.009)
     addOrbit(uranus, 0.00015, 0.01)
     addOrbit(neptune, 0.00016, 0.02)
+
 
 
     const canvPar = canvas.parentNode
