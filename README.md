@@ -24,6 +24,13 @@ Venus
 - https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA01544.jpg
 - https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA00100.jpg
 - https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA00234.jpg
+Earth
+- https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA18033.jpg
+- https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA11066.jpg
+- https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/ksc-08pd3162_orig.jpg
+
+Jupiter
+- https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/pia25015.jpg
 #### planet textures
 https://www.solarsystemscope.com/textures/
 - Mercury: https://www.solarsystemscope.com/textures/download/2k_mercury.jpg
