@@ -28,7 +28,11 @@ Earth
 - https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA18033.jpg
 - https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA11066.jpg
 - https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/ksc-08pd3162_orig.jpg
-
+Mars
+- https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA25681.jpg
+- https://d2pn8kiwq2w21t.cloudfront.net/images/jpegPIA25733.width-1600.jpg
+- https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA02006.jpg
+- https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA08514.jpg
 Jupiter
 - https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/pia25015.jpg
 #### planet textures
