@@ -10,6 +10,8 @@ body,html {
     text-align: center;
     display: block;
     padding: 2%;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }   
 
 #content {
@@ -29,6 +31,11 @@ body,html {
     display: table-cell;
     height: 100%;
 }
+#text a {
+    color: rgb(199, 106, 0);
+    font-weight: bold;
+}
+
 #gallery {
     padding: 1%;
     display: table-cell;
@@ -41,3 +48,4 @@ body,html {
     width: 60%;
     height: auto;
 }
+
