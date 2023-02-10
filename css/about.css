@@ -1,0 +1,29 @@
+@import url("global.css");
+@import url("topbar.css");
+
+body,html {
+    height: 100%;
+}
+
+h1 {
+    text-align: center;
+    background-color: rgb(26, 27, 68);
+    color: white;
+    padding: 1%;
+    margin-top: 0;
+}
+
+#content {
+    margin-left: 1%;
+    padding: 1%;
+    width: 96%;
+    background-color: rgb(24, 24, 24);
+    height: 98%;
+    border-radius: 10px;
+}
+
+.disclaimer {
+    color: orange;
+    font-weight: bold;
+    font-size: 120%;
+}
