@@ -33,6 +33,8 @@ Mars
 - https://d2pn8kiwq2w21t.cloudfront.net/images/jpegPIA25733.width-1600.jpg
 - https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA02006.jpg
 - https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA08514.jpg
+Kuiper Belt
+- https://solarsystem.nasa.gov/internal_resources/3253
 Jupiter
 - https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/pia25015.jpg
 #### planet textures
