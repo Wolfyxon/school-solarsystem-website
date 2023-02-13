@@ -39,6 +39,9 @@ Jupiter
 - https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/pia25015.jpg
 - https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA21966.jpg
 - https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA21972.jpg
+Saturn
+- https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA06594.jpg
+- https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA02884.jpg
 #### planet textures
 https://www.solarsystemscope.com/textures/
 - Mercury: https://www.solarsystemscope.com/textures/download/2k_mercury.jpg
