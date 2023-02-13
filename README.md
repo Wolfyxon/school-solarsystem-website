@@ -42,6 +42,8 @@ Jupiter
 Saturn
 - https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA06594.jpg
 - https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA02884.jpg
+Uranus
+https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA00143.jpg
 #### planet textures
 https://www.solarsystemscope.com/textures/
 - Mercury: https://www.solarsystemscope.com/textures/download/2k_mercury.jpg
