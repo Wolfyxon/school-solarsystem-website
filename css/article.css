@@ -20,6 +20,7 @@ body,html {
     width: 90%;
     margin-left: 5%;
     height: 100%;
+    border-top: solid 5px orange;
 }
 
 #text {
@@ -41,11 +42,12 @@ body,html {
     display: table-cell;
     overflow: scroll;
     width: 39%;
-    background-color: black;
+    background-color: rgb(20, 20, 20);
     text-align: center;
 }
 #gallery img {
     width: 60%;
     height: auto;
+    border-radius: 10px;
 }
 
