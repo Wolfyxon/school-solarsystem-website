@@ -150,7 +150,7 @@ window.addEventListener('load', () => {
     jupiter.position.set(350, 0, 0)
 
     //////SATURN ZONE
-    const saturn = new TH.Mesh(new TH.IcosahedronGeometry(20, 25), new TH.MeshLambertMaterial({ map: textures.saturn }))
+    const saturn = new TH.Mesh(new TH.IcosahedronGeometry(18, 25), new TH.MeshLambertMaterial({ map: textures.saturn }))
     saturn.position.set(500, 0, 0)
     const saturnRing = new TH.Mesh(new TH.RingGeometry(25, 50, 50), new TH.MeshLambertMaterial({ map: textures.saturn_ring, side: TH.DoubleSide, transparent: true }))
     saturnRing.rotateX(deg2rad(90))
