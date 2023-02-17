@@ -12,6 +12,8 @@ This **does not** require Node to work, even if there's `node_modules`, but it n
 - https://d2pn8kiwq2w21t.cloudfront.net/images/jpegPIA21024.width-1600.jpg
 
 #### Gallery
+Solar System
+- https://d2pn8kiwq2w21t.cloudfront.net/images/jpegPIA10969.width-1600.jpg
 Sun
 - https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA17669.jpg
 - https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA21873.jpg
