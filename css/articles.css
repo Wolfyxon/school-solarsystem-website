@@ -11,14 +11,15 @@ body {
     display: block;
     text-decoration: none;
     overflow: hidden;
-    background-color: white;
+    background-color: rgb(53, 53, 53);
     border-radius: 10px;
     margin-top: 0.5%;
-    color: black;
+    color: white;
     transition: 0.2s;
 }
 .article:hover {
     background-color: #bdd2ff;
+    color: black;
     transition: 0.2s;
 }
 
