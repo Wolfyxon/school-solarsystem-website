@@ -5,6 +5,7 @@ body {
 #articles {
     width: 90%;
     margin-left: 5%;
+    padding-bottom: 5%;
 }
 
 .article {
