@@ -24,8 +24,17 @@ function Vector3(x, y, z) {
     return new TH.Vector3(x, y, z);
 }
 
+function absoluteUrl(url){
+    const a = document.createElement("a");
+    a.href = url;
+    const href = a.href;
+    console.log(href);
+    a.remove();
+    return href;
+}
+
 function texture(path, shaded = true) {
-    if(location.href.includes(".github.io")) path = path.replace("../","") // Fix 404 errors on GitHub pages.
+    path = absoluteUrl(path);
     const tx = new TH.TextureLoader().load(path)
     if (shaded) {
         tx.mapping = TH.EquirectangularReflectionMapping;
