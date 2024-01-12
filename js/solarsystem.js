@@ -28,7 +28,6 @@ function absoluteUrl(url){
     const a = document.createElement("a");
     a.href = url;
     const href = a.href;
-    console.log(href);
     a.remove();
     return href;
 }
