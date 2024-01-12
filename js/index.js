@@ -12,7 +12,6 @@ const facts = [
 window.addEventListener('load', () => {
     const f = facts[Math.floor(Math.random() * facts.length)]
     document.getElementById("didyouknow-text").textContent = f
-    console.log(f)
 
     setTimeout(function (){ //timeout for weird people like me who click on the screen right after entering a website
         const canvas = document.getElementById("solarsys-canvas")
