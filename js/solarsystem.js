@@ -25,6 +25,7 @@ function Vector3(x, y, z) {
 }
 
 function texture(path, shaded = true) {
+    if(location.href.includes(".github.io")) path = path.replace("../") // Fix 404 errors on GitHub pages.
     const tx = new TH.TextureLoader().load(path)
     if (shaded) {
         tx.mapping = TH.EquirectangularReflectionMapping;
